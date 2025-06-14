@@ -1,25 +1,35 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+void SelectionSort(int n,int arr[]){
+    int min;
+    for(int i=0;i<n-1;i++){
+        min = i;
+        for(int j=i+1;j<n;j++){
+            if(arr[j]<arr[min]){
+                min=j;
+            }
+        }
+        swap(arr[i],arr[min]);
+    }
+}
 int main(){
     int n;
-    cout<<"Enter the size of array"<<endl;
+    cout<<"Enter the Size of Array"<<endl;
     cin>>n;
-    cout<<"Enter Element in array"<<endl;
     int arr[n];
+    cout<<"Enter the Elements of Array"<<endl;
     for(int i=0;i<n;i++){
         cin>>arr[i];
     }
-    
-    for(int i=0;i<n;i++){
-        for(int j=i+1;j<n;j++){
-            if(arr[j]<arr[i]){
-                swap(arr[i],arr[j]);
-            }
-        }
-    }
-    for(int i : arr){
-        cout<<i<<" ";
-    }
+    cout<<"Array Before Sorting"<<endl;
 
-    return 0;
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<endl;
+    }
+    
+    cout<<"Array After Sorting"<<endl;
+    SelectionSort(n,arr);
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<endl;
+    }
 }
